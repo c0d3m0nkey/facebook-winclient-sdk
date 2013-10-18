@@ -101,7 +101,8 @@ namespace Facebook.Client
         /// </summary>
         private void BrowserControl_Navigating(object sender, NavigatingEventArgs e)
         {
-            if (e.Uri == WebAuthenticationBroker.EndUri)
+            URL.Text = e.Uri.ToString();
+            if (e.Uri.AbsolutePath == WebAuthenticationBroker.EndUri.AbsolutePath)
             {
                 responseData = e.Uri.ToString();
                 responseStatus = WebAuthenticationStatus.Success;
